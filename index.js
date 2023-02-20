@@ -66,7 +66,10 @@ async function start() {
               if (guess < secretNumber) {
                 // continue searching to the right
                 console.log(`\nReminder: Your secret number is ${secretNumber}.`)
-                await ask("\nIs your number (h)igher or (l)ower? ");
+                let highLow = await ask("\nIs your number (h)igher or (l)ower? ");
+                if (highLow == "l") {
+                  console.log("\nYou're trying to cheat, aren't you?");
+                }
                 minNum = guess + 1;
                 guess = Math.floor((highNum + minNum) / 2);
                 await ask(`\nIs your number ${guess}? y or n? `);
@@ -74,7 +77,10 @@ async function start() {
             } else if (guess > secretNumber) {
                 // search searching to the left
                 console.log(`\nReminder: Your secret number is ${secretNumber}.`)
-                await ask("\nIs your number (h)igher or (l)ower? ");
+                let highLow = await ask("\nIs your number (h)igher or (l)ower? ");
+                if (highLow == "h") {
+                  console.log("\nYou're trying to cheat, aren't you?");
+                }
                 highNum = guess - 1;
                 guess = Math.floor((highNum + minNum) / 2);
                 await ask(`\nIs your number ${guess}? y or n? `);
