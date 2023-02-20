@@ -84,7 +84,11 @@ async function start() {
                 await ask(`\nIs your number ${guess}? y or n? `);
             }
           }
+          //jumps out of while loop when secret number is equal to guess 
+
           console.log(`\nI got it! Your secret number is ${guess}!`);
+          
+          // Stops the function from running. "exits"
           process.exit();}
 
           startGame();
@@ -98,6 +102,6 @@ async function start() {
 
 
 
-// Stops the function from running. "exits"
+
 
 
